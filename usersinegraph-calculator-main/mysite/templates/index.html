@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sine Graph Generator</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        h1 {
+            color: navy;
+            text-align: center;
+        }
+
+        button {
+            background-color: navy;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: darkblue;
+        }
+
+        form {
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        input[type="submit"] {
+            background-color: navy;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            cursor: pointer;
+            background-color: darkblue;
+        }
+
+        #members {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sine Graph Generator</h1>
+    <a href="https://docs.djangoproject.com/en/4.2/" target="_blank" id="link">Django Docs</a>
+    <button onclick="showMembers()">Show Group Members</button>
+    <br><br>
+    <div>
+        <form method="POST" action="{% url 'generate_graph' %}">
+            {% csrf_token %}
+            <label for="start">Start:</label><br>
+            <input type="number" id="start" name="start" step="0.1"><br>
+            <label for="end">End:</label><br>
+            <input type="number" id="end" name="end" step="0.1"><br>
+            <label for="step">Step:</label><br>
+            <input type="number" id="step" name="step" step="0.1"><br><br>
+            <input type="submit" value="Generate Graph">
+        </form>
+    </div>
+    <div id="members"></div>
+    <script>
+        function showMembers() {
+            var members = "Sawan Kumar - 21BPS1067<br>Annapareddy Ushasree - 21BPS1444<br>Kuruva Kedareshwari - 21BRS1501<br>Chinta Reddy Varshitha - 21BRS1545";
+            document.getElementById("members").innerHTML = members;
+            document.getElementById("members").style.display = "block";
+        }
+    </script>
+</body>
+</html>

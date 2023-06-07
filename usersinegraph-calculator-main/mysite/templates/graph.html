@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graph Result</title>
+    <style>
+        body {
+            background-color: rgb(142, 196, 102);
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: rgb(51, 41, 41);
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+        }
+
+        #made-by {
+            text-align: center;
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+        }
+    </style>
+</head>
+<body>
+    {% if graph_generated %}
+    <h1>Graph Result</h1>
+    <img src="{{ image_path }}">
+    {% else %}
+    <h1>No Graph Generated Yet</h1>
+    {% endif %}
+    <br>
+    <a href="{% url 'index' %}">Go Back</a>
+</body>
+</html>
